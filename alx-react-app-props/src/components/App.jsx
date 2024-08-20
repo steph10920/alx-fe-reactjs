@@ -1,6 +1,4 @@
-import UserContext from './UserContext';
-import ProfilePage from './ProfilePage';
-
+import UserContext from './UserContext'; // Adjust the path if needed
 function App() {
   const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
@@ -10,4 +8,3 @@ function App() {
     </UserContext.Provider>
   );
 }
-export default App;
