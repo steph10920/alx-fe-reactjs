@@ -2,30 +2,30 @@ import create from 'zustand';
 
 const useRecipeStore = create(set => ({
   recipes: [],
-  searchTerm: '',
-  filteredRecipes: [],
+  favorites: [],
   
-  // Action to update the search term
-  setSearchTerm: (term) => set(state => {
-    state.searchTerm = term;
-    state.filteredRecipes = state.recipes.filter(recipe =>
-      recipe.title.toLowerCase().includes(term.toLowerCase()) ||
-      recipe.ingredients.toLowerCase().includes(term.toLowerCase()) ||
-      recipe.preparationTime.toLowerCase().includes(term.toLowerCase())
+  // Action to add a recipe to favorites
+  addFavorite: (recipeId) => set(state => ({
+    favorites: [...state.favorites, recipeId]
+  })),
+
+  // Action to remove a recipe from favorites
+  removeFavorite: (recipeId) => set(state => ({
+    favorites: state.favorites.filter(id => id !== recipeId)
+  })),
+
+  recommendations: [],
+  
+  // Mock action to generate recommendations based on favorites
+  generateRecommendations: () => set(state => {
+    const recommended = state.recipes.filter(recipe =>
+      state.favorites.includes(recipe.id) && Math.random() > 0.5
     );
+    return { recommendations: recommended };
   }),
 
   // Action to set initial recipes
-  setRecipes: (recipes) => set(state => {
-    state.recipes = recipes;
-    state.filteredRecipes = state.searchTerm
-      ? recipes.filter(recipe =>
-          recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase()) ||
-          recipe.ingredients.toLowerCase().includes(state.searchTerm.toLowerCase()) ||
-          recipe.preparationTime.toLowerCase().includes(state.searchTerm.toLowerCase())
-        )
-      : recipes;
-  }),
+  setRecipes: (recipes) => set({ recipes }),
 }));
 
 export { useRecipeStore };
