@@ -5,14 +5,13 @@ const RegistrationForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!username || !email || !password) {
-      alert('All fields are required');
-      return;
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (username && email && password) {
+      console.log({ username, email, password });
+    } else {
+      alert('All fields are required!');
     }
-    // Simulate API call here
-    console.log({ username, email, password });
   };
 
   return (
