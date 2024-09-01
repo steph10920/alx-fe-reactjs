@@ -4,8 +4,11 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import BlogPost from './components/BlogPost';
 import ProtectedRoute from './components/ProtectedRoute';
+import { useAuth } from './context/AuthContext';
 
 function App() {
+  const { isAuthenticated, login, logout } = useAuth();
+
   return (
     <Router>
       <nav>
@@ -15,6 +18,13 @@ function App() {
           <li><Link to="/blog/1">Blog Post 1</Link></li>
         </ul>
       </nav>
+      <div>
+        {isAuthenticated ? (
+          <button onClick={logout}>Logout</button>
+        ) : (
+          <button onClick={login}>Login</button>
+        )}
+      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile/*" element={
