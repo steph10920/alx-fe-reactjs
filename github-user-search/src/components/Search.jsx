@@ -1,17 +1,16 @@
-// src/components/Search.jsx
 import React, { useState } from 'react';
 
 function Search({ onSearch }) {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('');  // State to track input value
 
   const handleInputChange = (event) => {
-    setUsername(event.target.value);
+    setUsername(event.target.value);  // Update input value when the user types
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault();  // Prevent form reload
     if (username.trim()) {
-      onSearch(username);
+      onSearch(username);  // Pass the username to the parent component when form is submitted
     }
   };
 
