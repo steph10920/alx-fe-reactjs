@@ -1,7 +1,7 @@
-// src/components/SearchInput.jsx
+// src/components/Search.jsx
 import React, { useState } from 'react';
 
-function SearchInput({ onSearch }) {
+function Search({ onSearch }) {
   const [username, setUsername] = useState('');
 
   const handleInputChange = (event) => {
@@ -28,4 +28,4 @@ function SearchInput({ onSearch }) {
   );
 }
 
-export default SearchInput;
+export default Search;

@@ -1,6 +1,6 @@
 // src/App.jsx
 import React, { useState } from 'react';
-import SearchInput from './components/SearchInput';
+import Search from './components/Search';  // Updated to use the new Search component
 import { fetchUserData } from './services/githubService';
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <h1>GitHub User Search</h1>
-      <SearchInput onSearch={searchUser} />
+      <Search onSearch={searchUser} />  {/* Updated component usage */}
 
       {loading && <p>Loading...</p>}
 
