@@ -8,20 +8,23 @@ function SearchInput({ onSearch }) {
     setUsername(event.target.value);
   };
 
-  const handleSearch = () => {
-    onSearch(username);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (username.trim()) {
+      onSearch(username);
+    }
   };
 
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Enter GitHub username"
         value={username}
         onChange={handleInputChange}
       />
-      <button onClick={handleSearch}>Search</button>
-    </div>
+      <button type="submit">Search</button>
+    </form>
   );
 }
 
