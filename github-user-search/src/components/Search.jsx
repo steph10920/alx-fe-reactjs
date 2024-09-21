@@ -21,7 +21,7 @@ function Search() {
       setUserData(data);  // Set the retrieved data
     } catch (error) {
       // Handle if GitHub API responds with an error or user is not found
-      setError("Looks like we can't find the user");  // Set the exact error message
+      setError("Looks like we cant find the user");  // Set the exact error message
     } finally {
       setLoading(false);  // Set loading to false after the request
     }
