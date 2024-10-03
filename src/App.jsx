@@ -112,7 +112,8 @@ const App = () => {
 
       {/* Footer */}
       <footer className="text-center py-4 bg-blue-500 dark:bg-blue-800 text-white">
-        <p>&copy; 2024 SMART CURRENCY CONVERTER. Designed by: Stephen</p>
+        <p>&copy; 2024 SMART CURRENCY CONVERTER. Designed by: Stephen Ashioya</p>
+        
       </footer>
     </div>
   );
